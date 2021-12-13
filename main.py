@@ -86,60 +86,127 @@ def add_wednesdays(events: list[Event],
                 month: int,
                 weeks: list[list[int]]) -> None:
     """add Wednesday events to calendar"""
+    days = [day[2] for day in weeks if day[2]]
 
-    day = weeks[1][3]
     add_event(events,
               "Mid Week Service 6:00pm",
               "Mid Week Service",
               "",
-              #  datetime(year, month, weeks[1][3], 19, 00, 00),
-              datetime(year, month, day, 15, 21, 00, 00),
-              datetime(year, month, day,15, 21, 00, 00),
-              # datetime(year, month, weeks[1][3], 21, 00, 00),
+              datetime(year, month, days[0], 19, 00, 00),
+              datetime(year, month, days[0], 21, 00, 00),
              )
+
+    add_event(events,
+              "Mid Week Service 6:00pm",
+              "Mid Week Service",
+              "",
+              datetime(year, month, days[1], 19, 00, 00),
+              datetime(year, month, days[1], 21, 00, 00),
+             )
+
+    add_event(events,
+              "Mid Week Service 6:00pm",
+              "Mid Week Service",
+              "",
+              datetime(year, month, days[2], 19, 00, 00),
+              datetime(year, month, days[2], 21, 00, 00),
+             )
+
+    add_event(events,
+              "Mid Week Service 6:00pm",
+              "Mid Week Service",
+              "",
+              datetime(year, month, days[3], 19, 00, 00),
+              datetime(year, month, days[3], 21, 00, 00),
+             )
+
+    if len(days) == 5:
+        add_event(events,
+                  "Mid Week Service 6:00pm",
+                  "Mid Week Service",
+                  "",
+                  datetime(year, month, days[4], 19, 00, 00),
+                  datetime(year, month, days[4], 21, 00, 00),
+                 )
 
 def add_thursdays(events: list[Event],
                 year: int,
                 month: int,
-                weeks: list[list[int]]) -> None:
+                days: list[list[int]]) -> None:
     """add Thursday events to calendar"""
+    days = [day[3] for day in days if day[3]]
 
     add_event(events,
               "Woman’s Meeting 10:00am",
               "Woman’s Meeting",
               "Woman 2 Woman Bible Study",
-              datetime(year, month, weeks[1][4], 19, 00, 00),
-              datetime(year, month, weeks[1][4], 21, 00, 00),
+              datetime(year, month, days[0], 19, 00, 00),
+              datetime(year, month, days[0], 21, 00, 00),
              )
+
+    add_event(events,
+              "Woman’s Meeting 10:00am",
+              "Woman’s Meeting",
+              "Woman 2 Woman Bible Study",
+              datetime(year, month, days[1], 19, 00, 00),
+              datetime(year, month, days[1], 21, 00, 00),
+             )
+
+    add_event(events,
+              "Woman’s Meeting 10:00am",
+              "Woman’s Meeting",
+              "Woman 2 Woman Bible Study",
+              datetime(year, month, days[2], 19, 00, 00),
+              datetime(year, month, days[2], 21, 00, 00),
+             )
+
+    add_event(events,
+              "Woman’s Meeting 10:00am",
+              "Woman’s Meeting",
+              "Woman 2 Woman Bible Study",
+              datetime(year, month, days[3], 19, 00, 00),
+              datetime(year, month, days[3], 21, 00, 00),
+             )
+
+    if len(days) == 5:
+        add_event(events,
+                  "Woman’s Meeting 10:00am",
+                  "Woman’s Meeting",
+                  "Woman 2 Woman Bible Study",
+                  datetime(year, month, days[4], 19, 00, 00),
+                  datetime(year, month, days[4], 21, 00, 00),
+                 )
+
 
 def add_fridays(events: list[Event],
                 year: int,
                 month: int,
-                weeks: list[list[int]]) -> None:
+                days: list[list[int]]) -> None:
     """add Friday events to calendar"""
-    if len(weeks) == 4 or weeks[4][4] == 0:
-        return
+    days = [day[4] for day in days if day[4]]
 
-    add_event(events,
-              "Family Movie Night 7:00pm",
-              "Movie Night",
-              "Movie to be announced",
-              datetime(year, month, weeks[4][4], 19, 00, 00),
-              datetime(year, month, weeks[4][4], 21, 00, 00),
-             )
+    if len(days) == 5:
+        add_event(events,
+                  "Family Movie Night 7:00pm",
+                  "Movie Night",
+                  "Movie to be announced",
+                  datetime(year, month, days[4], 19, 00, 00),
+                  datetime(year, month, days[4], 21, 00, 00),
+                 )
 
 def add_saturdays(events: list[Event],
                 year: int,
                 month: int,
                 weeks: list[list[int]]) -> None:
     """add Saturday events to calendar"""
+    days = [day[5] for day in weeks if day[5]]
 
     add_event(events,
               "Men's Breakfast 8:00am",
               "Men's Meeting",
               "",
-              datetime(year, month, weeks[1][5], 19, 00, 00),
-              datetime(year, month, weeks[1][5], 21, 00, 00),
+              datetime(year, month, days[1], 19, 00, 00),
+              datetime(year, month, days[1], 21, 00, 00),
              )
 
 def add_sundays(events: list[Event],
@@ -147,14 +214,16 @@ def add_sundays(events: list[Event],
                 month: int,
                 weeks: list[list[int]]) -> None:
     """add Sunday events to calendar"""
+    days = [day[6] for day in weeks if day[6]]
+
     add_event(events,
               "Sunday Service 10:00am",
               "Sunday Service",
               "Prayer Room open from 8:30 AM to 9:30 AM. Worship Service "
               "starts at 10:00 AM. First Sunday of the month is "
               "Missions Sunday.",
-              datetime(year, month, weeks[0][6], 10, 00, 00),
-              datetime(year, month, weeks[0][6], 12, 00, 00),
+              datetime(year, month, days[0], 10, 00, 00),
+              datetime(year, month, days[0], 12, 00, 00),
              )
 
     add_event(events,
@@ -163,8 +232,8 @@ def add_sundays(events: list[Event],
               "Prayer Room open from 8:30 AM to 9:30 AM. Worship Service "
               "starts at 10:00 AM. Second Sunday of the month is "
               "Baptism Sunday.",
-              datetime(year, month, weeks[1][6], 10, 00, 00),
-              datetime(year, month, weeks[1][6], 12, 00, 00),
+              datetime(year, month, days[1], 10, 00, 00),
+              datetime(year, month, days[1], 12, 00, 00),
              )
 
     add_event(events,
@@ -173,8 +242,8 @@ def add_sundays(events: list[Event],
               "Prayer Room open from 8:30 AM to 9:30 AM. Worship Service "
               "starts at 10:00 AM. Third Sunday of the month is "
               "Communion Sunday.",
-              datetime(year, month, weeks[2][6], 10, 00, 00),
-              datetime(year, month, weeks[2][6], 12, 00, 00),
+              datetime(year, month, days[2], 10, 00, 00),
+              datetime(year, month, days[2], 12, 00, 00),
              )
 
     add_event(events,
@@ -183,9 +252,20 @@ def add_sundays(events: list[Event],
               "Prayer Room open from 8:30 AM to 9:30 AM. Worship Service "
               "starts at 10:00 AM. Fourth Sunday of the month is "
               "Coins for Kids Sunday.",
-              datetime(year, month, weeks[3][6], 10, 00, 00),
-              datetime(year, month, weeks[3][6], 12, 00, 00),
+              datetime(year, month, days[3], 10, 00, 00),
+              datetime(year, month, days[3], 12, 00, 00),
              )
+
+    if len(days) == 5:
+        add_event(events,
+                  "Sunday Service 10:00am",
+                  "Sunday Service",
+                  "Prayer Room open from 8:30 AM to 9:30 AM. Worship Service "
+                  "starts at 10:00 AM. Fifth Sunday of the month is "
+                  "Potluck Sunday",
+                  datetime(year, month, days[4], 10, 00, 00),
+                  datetime(year, month, days[4], 12, 00, 00),
+                 )
 
 
 def write_calendar(events: list[Event]) -> None:
