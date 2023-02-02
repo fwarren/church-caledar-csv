@@ -254,7 +254,7 @@ def add_saturdays(events: list[Event],
               "Men's Breakfast 8:00am",
               "Men's Meeting",
               "",
-              datetime(year, month, days[1], 08, 00, 00),
+              datetime(year, month, days[1], 8, 00, 00),
               datetime(year, month, days[1], 10, 00, 00),
              )
 
